@@ -24,9 +24,9 @@ cat << 'EOF'
               +++++++              
                 +++                
                                    
-                     STREMIO  INSTALLER & RE-SIGNER (macOS)
+                     STREMIO DMG INSTALLER & RE-SIGNER (macOS)
                      Author   : Yasser Alharbi (@i0zzw)
-                     follow me x: @i0zzw
+                     follow me: @i0zzw
 EOF
 
 echo
@@ -34,7 +34,7 @@ echo "اختر وضع التثبيت:"
 echo "1) تثبيت تلقائي (تحميل Stremio / Stremio Horizon)"
 echo "2) لدي ملف DMG جاهز (استخدام مساره)"
 echo
-read -p "أدخل رقم الخيار ثم اضغط Enter: " MODE
+read -p "أدخل رقم الخيار ثم اضغط Enter: " MODE < /dev/tty
 MODE=$(echo "$MODE" | tr -d '[:space:]')
 
 # دالة التثبيت من ملف DMG (سواء تم تحميله أو كان جاهز)
@@ -149,8 +149,7 @@ case "$MODE" in
     echo "1) Stremio الرسمي (Apple Silicon ARM64)"
     echo "2) Stremio Horizon (Apple Silicon ARM64)"
     echo
-
-    read -p "أدخل رقم الخيار ثم اضغط Enter: " AUTO_CHOICE
+    read -p "أدخل رقم الخيار ثم اضغط Enter: " AUTO_CHOICE < /dev/tty
     AUTO_CHOICE=$(echo "$AUTO_CHOICE" | tr -d '[:space:]')
 
     case "$AUTO_CHOICE" in
@@ -187,7 +186,7 @@ case "$MODE" in
 
   2)
     echo
-    read -e -p "اسحب وأفلت ملف الـ DMG هنا ثم اضغط Enter: " DMG_FILE
+    read -e -p "اسحب وأفلت ملف الـ DMG هنا ثم اضغط Enter: " DMG_FILE < /dev/tty
     DMG_FILE="$(echo "$DMG_FILE" | xargs)"
 
     if [[ ! -f "$DMG_FILE" ]]; then
